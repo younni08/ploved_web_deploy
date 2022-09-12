@@ -16,12 +16,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // for deploy only
 const path = require("path");
-app.use(express.static(path.resolve(__dirname,"./build/html")));
+app.use(express.static(path.resolve(__dirname,"./build")));
 
 // Import Routes
 
 app.get('*', function (request, response){
-    response.sendFile(path.resolve(__dirname, './build/html', 'index.html'))
+    response.sendFile(path.resolve(__dirname, './build', 'index.html'))
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
